@@ -14,103 +14,119 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f6f6f6;
-            color: #333;
+            background: linear-gradient(135deg, #1f1f1f, #333);
+            color: #ffffff;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            min-height: 100vh;
         }
 
         .container {
-            max-width: 400px;
-            width: 100%;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
             text-align: center;
         }
 
         .logo {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             margin-bottom: 20px;
         }
 
         .logo img {
-            max-width: 120px;
+            max-width: 150px;
         }
 
-        .call-button {
-            background-color: #ffcc00;
-            border: none;
-            color: #333;
-            font-weight: bold;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            font-size: 14px;
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #ffcc00;
         }
 
         .button {
-            display: block;
-            background-color: #ffcc00;
-            color: #333;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
             margin: 10px 0;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 204, 0, 0.8);
+            backdrop-filter: blur(5px);
+            color: #333;
+            font-weight: bold;
+            font-size: 18px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            text-decoration: none;
         }
 
         .button:hover {
-            background-color: #ffaa00;
+            background: rgba(255, 204, 0, 1);
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 204, 0, 0.5);
         }
 
-        .copy-button {
-            cursor: pointer;
+        .icon {
+            margin-right: 10px;
+            font-size: 20px;
         }
 
         footer {
             margin-top: 20px;
             font-size: 12px;
-            color: #888;
+            color: #ccc;
         }
 
         @media (max-width: 768px) {
-            .container {
-                padding: 15px;
-            }
-
-            .logo img {
-                max-width: 100px;
+            .button {
+                font-size: 16px;
             }
         }
     </style>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
-        <!-- Logo e botão de chamada -->
+        <!-- Logo -->
         <div class="logo">
-            <img src="logo.png" alt="PlanAuto Logo" id="logo">
-            <a href="tel:+556130457070" class="call-button">Ligar</a>
+            <img src="https://via.placeholder.com/150x50?text=LOGO" alt="PlanAuto Logo">
         </div>
 
-        <!-- Botões de links -->
-        <a href="https://www.instagram.com/planautoseminovos_df/" class="button" target="_blank">Instagram</a>
-        <a href="https://planautoseminovos.com.br/" class="button" target="_blank">Veja nosso estoque</a>
-        <a href="https://wa.me/message/FOND6LEM6FKIE1" class="button" target="_blank">WhatsApp</a>
-        <button class="button copy-button" onclick="copyToClipboard('27523298000170')">Copiar PIX (CNPJ)</button>
-        <button class="button copy-button" onclick="copyToClipboard('planautoseminovos@gmail.com')">Copiar E-mail</button>
+        <!-- Título -->
+        <h1>PlanAuto Links</h1>
+
+        <!-- Botões -->
+        <a href="https://www.instagram.com/planautoseminovos_df/" class="button" target="_blank">
+            <i class="fab fa-instagram icon"></i> Instagram
+        </a>
+
+        <a href="https://planautoseminovos.com.br/" class="button" target="_blank">
+            <i class="fas fa-car icon"></i> Nosso Estoque
+        </a>
+
+        <a href="https://wa.me/message/FOND6LEM6FKIE1" class="button" target="_blank">
+            <i class="fab fa-whatsapp icon"></i> WhatsApp
+        </a>
+
+        <button class="button" onclick="copyToClipboard('27523298000170')">
+            <i class="fas fa-copy icon"></i> Copiar PIX
+        </button>
+
+        <button class="button" onclick="copyToClipboard('planautoseminovos@gmail.com')">
+            <i class="fas fa-envelope icon"></i> Copiar E-mail
+        </button>
     </div>
 
     <footer>
-        © 2025 PlanAuto Seminovos
+        © 2025 PlanAuto Seminovos. Todos os direitos reservados.
     </footer>
 
     <script>
