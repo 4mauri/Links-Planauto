@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -14,19 +14,21 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #1f1f1f, #333);
+            background: url('https://w.forfun.com/fetch/d0/d043b5015d6a303dc1d6fe977dcc79c5.jpeg') no-repeat center center fixed;
+            background-size: cover;
             color: #ffffff;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
+            padding: 20px;
         }
 
         .container {
-            width: 90%;
+            width: 100%;
             max-width: 500px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(10px);
             padding: 20px;
             border-radius: 15px;
@@ -40,6 +42,8 @@
 
         .logo img {
             max-width: 150px;
+            width: 100%;
+            height: auto;
         }
 
         h1 {
@@ -58,7 +62,6 @@
             border: none;
             border-radius: 8px;
             background: rgba(255, 204, 0, 0.8);
-            backdrop-filter: blur(5px);
             color: #333;
             font-weight: bold;
             font-size: 18px;
@@ -79,6 +82,27 @@
             font-size: 20px;
         }
 
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .notification.show {
+            opacity: 1;
+            transform: translate(-50%, 0);
+            pointer-events: auto;
+        }
+
         footer {
             margin-top: 20px;
             font-size: 12px;
@@ -97,7 +121,7 @@
     <div class="container">
         <!-- Logo -->
         <div class="logo">
-             <img src="Logo%20New%20Planauto.png" alt="PlanAuto Seminovos">
+            <img src="Logo%20New%20Planauto.png" alt="PlanAuto Seminovos">
         </div>
 
         <!-- Título -->
@@ -129,13 +153,24 @@
         © 2025 PlanAuto Seminovos. Todos os direitos reservados.
     </footer>
 
+    <div class="notification" id="notification">Copiado com sucesso!</div>
+
     <script>
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
-                alert(`${text} copiado para a área de transferência!`);
+                showNotification('Copiado com sucesso!');
             }).catch(err => {
                 console.error('Erro ao copiar para a área de transferência', err);
             });
+        }
+
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.classList.add('show');
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 2000);
         }
     </script>
 </body>
