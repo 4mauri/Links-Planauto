@@ -14,195 +14,157 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: url('https://w.forfun.com/fetch/d0/d043b5015d6a303dc1d6fe977dcc79c5.jpeg') no-repeat center center fixed;
-            background-size: cover;
-            color: #ffffff;
+            background: #000;
+            color: #fff;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             min-height: 100vh;
-            padding: 20px;
         }
 
-        .container {
-            width: 100%;
-            max-width: 500px;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        .card {
+            position: relative;
+            width: 360px;
+            height: 650px;
+            background: #1a1a1a;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
             text-align: center;
         }
 
-        .logo {
-            margin-bottom: 20px;
-        }
-
-        .logo img {
-            max-width: 150px;
-            width: 100%;
-            height: auto;
-        }
-
-        h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #ffcc00;
-        }
-
-        .button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            margin: 10px 0;
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            background: rgba(255, 204, 0, 0.8);
-            color: #333;
-            font-weight: bold;
-            font-size: 18px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-            text-decoration: none;
-        }
-
-        .button:hover {
-            background: #ffffff;
-            color: #ffcc00;
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(255, 255, 255, 0.3);
-        }
-
-        .button:active {
-            background: #ffcc00;
-            color: #333;
-            transform: scale(0.95);
-        }
-
-        .copy-button {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .copy-button::after {
+        .card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 255, 0, 0.6);
-            transition: all 0.4s ease;
+            top: -30%;
+            right: -35%;
+            width: 320px;
+            height: 320px;
+            background: #f9c802;
+            border-radius: 50%;
             z-index: 1;
         }
 
-        .copy-button.copied::after {
-            left: 0;
+        .logo {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            z-index: 2;
         }
 
-        .icon {
-            margin-right: 10px;
-            font-size: 20px;
+        .logo img {
+            max-width: 80px;
         }
 
-        .notification {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.8);
+        .title {
+            font-size: 24px;
+            margin-top: 140px;
+            font-weight: bold;
+            z-index: 2;
             color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 14px;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
-        .notification.show {
-            opacity: 1;
-            transform: translate(-50%, 0);
-            pointer-events: auto;
+        .buttons {
+            position: absolute;
+            bottom: 50px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            padding: 0 20px;
         }
 
-        footer {
-            margin-top: 20px;
-            font-size: 12px;
-            color: #ccc;
+        .button {
+            width: 100%;
+            aspect-ratio: 1;
+            background: #f9c802; /* Amarelo */
+            color: #333;
+            border: none;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background: #ffd700; /* Amarelo mais claro */
+            transform: scale(1.05);
+        }
+
+        .button img, .button svg {
+            width: 50px;
+            height: 50px;
         }
 
         @media (max-width: 768px) {
-            .button {
-                font-size: 16px;
+            .card {
+                width: 320px;
+                height: 600px;
+            }
+
+            .logo img {
+                max-width: 70px;
+            }
+
+            .buttons {
+                gap: 10px;
+            }
+
+            .button img, .button svg {
+                width: 40px;
+                height: 40px;
             }
         }
     </style>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="card">
         <!-- Logo -->
         <div class="logo">
-            <img src="Logo%20New%20Planauto.png" alt="PlanAuto Seminovos">
+            <img src="Logo%20New%20Planauto.png" alt="PlanAuto Logo">
         </div>
 
         <!-- Título -->
-        <h1>PlanAuto Links</h1>
+        <div class="title">Links PlanAuto</div>
 
         <!-- Botões -->
-        <a href="https://www.instagram.com/planautoseminovos_df/" class="button" target="_blank">
-            <i class="fab fa-instagram icon"></i> Instagram
-        </a>
-
-        <a href="https://planautoseminovos.com.br/" class="button" target="_blank">
-            <i class="fas fa-car icon"></i> Nosso Estoque
-        </a>
-
-        <a href="https://wa.me/message/FOND6LEM6FKIE1" class="button" target="_blank">
-            <i class="fab fa-whatsapp icon"></i> WhatsApp
-        </a>
-
-        <button class="button copy-button" onclick="copyToClipboard(this, '27523298000170')">
-            <i class="fas fa-copy icon"></i> Copiar PIX
-        </button>
-
-        <button class="button copy-button" onclick="copyToClipboard(this, 'planautoseminovos@gmail.com')">
-            <i class="fas fa-envelope icon"></i> Copiar E-mail
-        </button>
+        <div class="buttons">
+            <button class="button" onclick="copyToClipboard('27523298000170')">
+                <!-- Primeiro botão com SVG substituído -->
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="150" height="150" viewBox="0 0 50 50">
+                    <path d="M 25 0.0390625 C 22.84 0.0390625 20.799531 0.88015625 19.269531 2.4101562 L 9.6796875 12 L 12.929688 12 C 14.529687 12 16.039922 12.619766 17.169922 13.759766 L 23.939453 20.529297 C 24.519453 21.109297 25.480547 21.109531 26.060547 20.519531 L 32.830078 13.759766 C 33.960078 12.619766 35.470312 12 37.070312 12 L 40.320312 12 L 30.730469 2.4101562 C 29.200469 0.88015625 27.16 0.0390625 25 0.0390625 z M 7.6796875 14 L 2.4101562 19.269531 C -0.74984375 22.429531 -0.74984375 27.570469 2.4101562 30.730469 L 7.6796875 36 L 12.929688 36 C 13.999687 36 14.999766 35.580078 15.759766 34.830078 L 22.529297 28.060547 C 23.889297 26.700547 26.110703 26.700547 27.470703 28.060547 L 34.240234 34.830078 C 35.000234 35.580078 36.000312 36 37.070312 36 L 42.320312 36 L 47.589844 30.730469 C 50.749844 27.570469 50.749844 22.429531 47.589844 19.269531 L 42.320312 14 L 37.070312 14 C 36.000313 14 35.000234 14.419922 34.240234 15.169922 L 27.470703 21.939453 C 26.790703 22.619453 25.9 22.960938 25 22.960938 C 24.1 22.960937 23.209297 22.619453 22.529297 21.939453 L 15.759766 15.169922 C 14.999766 14.419922 13.999688 14 12.929688 14 L 7.6796875 14 z M 25 29.037109 C 24.615 29.038359 24.229453 29.185469 23.939453 29.480469 L 17.169922 36.240234 C 16.039922 37.380234 14.529687 38 12.929688 38 L 9.6796875 38 L 19.269531 47.589844 C 20.799531 49.119844 22.84 49.960938 25 49.960938 C 27.16 49.960938 29.200469 49.119844 30.730469 47.589844 L 40.320312 38 L 37.070312 38 C 35.470313 38 33.960078 37.380234 32.830078 36.240234 L 26.060547 29.470703 C 25.770547 29.180703 25.385 29.035859 25 29.037109 z"></path>
+                </svg>
+            </button>
+            <a href="https://g.page/r/CZdDZfQSEXXVEBM/review" class="button">
+                <!-- Segundo botão com novo SVG -->
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
+                    <path fill="#fbc02d" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12	s5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24s8.955,20,20,20	s20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path>
+                    <path fill="#e53935" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039	l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path>
+                    <path fill="#4caf50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36	c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path>
+                    <path fill="#1565c0" d="M43.611,20.083L43.595,20L42,20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571	c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
+                </svg>
+            </a>
+            <a href="https://planautoseminovos.com.br/" class="button">
+                <img src="https://img.icons8.com/ios-filled/50/000000/internet.png" alt="Site">
+            </a>
+            <a href="mailto:planautoseminovos@gmail.com" class="button">
+                <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="Email">
+            </a>
+            <a href="https://wa.me/message/FOND6LEM6FKIE1" class="button">
+                <img src="https://img.icons8.com/ios-filled/50/000000/whatsapp.png" alt="WhatsApp">
+            </a>
+            <a href="https://www.instagram.com/planautoseminovos_df/" class="button">
+                <img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" alt="Instagram">
+            </a>
+        </div>
     </div>
-
-    <footer>
-        © 2025 PlanAuto Seminovos. Todos os direitos reservados.
-    </footer>
-
-    <div class="notification" id="notification">Copiado com sucesso!</div>
-
     <script>
-        function copyToClipboard(button, text) {
+        function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
-                showNotification('Copiado com sucesso!');
-                button.classList.add('copied');
-                setTimeout(() => {
-                    button.classList.remove('copied');
-                }, 400);
-            }).catch(err => {
-                console.error('Erro ao copiar para a área de transferência', err);
-            });
-        }
-
-        function showNotification(message) {
-            const notification = document.getElementById('notification');
-            notification.textContent = message;
-            notification.classList.add('show');
-            setTimeout(() => {
-                notification.classList.remove('show');
-            }, 2000);
+                alert(`${text} copiado para a área de transferência!`);
+            }).catch(err => console.error('Erro ao copiar', err));
         }
     </script>
 </body>
