@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlanAuto Links</title>
+    <title>Dashboard - PlanAuto</title>
     <style>
         /* Reset CSS */
         * {
@@ -14,7 +14,7 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: #000;
+            background: url('background.jpg') no-repeat center center/cover; /* Espaço para futuro background */
             color: #fff;
             display: flex;
             justify-content: center;
@@ -23,148 +23,282 @@
         }
 
         .card {
-            position: relative;
-            width: 360px;
-            height: 650px;
-            background: #1a1a1a;
-            border-radius: 30px;
+            width: 90%;
+            max-width: 400px;
+            background: rgba(0, 0, 0, 0.8); /* Fundo translúcido do cartão */
+            border-radius: 25px;
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .card::before {
-            content: '';
-            position: absolute;
-            top: -30%;
-            right: -35%;
-            width: 320px;
-            height: 320px;
+        /* Header */
+        .header {
             background: #f9c802;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+
+        .profile-pic {
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
-            z-index: 1;
+            overflow: hidden;
+            margin: 0 auto 10px;
+            border: 2px solid #fff;
         }
 
-        .logo {
-            position: absolute;
-            top: 30px;
-            right: 30px;
-            z-index: 2;
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .logo img {
-            max-width: 80px;
-        }
-
-        .title {
-            font-size: 24px;
-            margin-top: 140px;
+        .name {
+            font-size: 1.5rem;
             font-weight: bold;
-            z-index: 2;
-            color: #fff;
         }
 
-        .buttons {
-            position: absolute;
-            bottom: 50px;
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+        .profession {
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
             gap: 15px;
-            padding: 0 20px;
+            margin-top: 15px;
         }
 
-        .button {
-            width: 100%;
-            aspect-ratio: 1;
-            background: #f9c802; /* Amarelo */
-            color: #333;
-            border: none;
-            border-radius: 10px;
+        .social-icons a {
+            background: rgba(255, 255, 255, 0.7);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: #000;
+            transform: scale(1.1);
+        }
+
+        .social-icons svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Content */
+        .content {
+            padding: 20px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .skills {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .skill-box {
+            width: 70px;
+            height: 70px;
+            background: rgba(51, 51, 51, 0.8);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            font-size: 0.8rem;
+            transition: transform 0.3s ease, background 0.3s ease;
             cursor: pointer;
-            transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
-        .button:hover {
-            background: #ffd700; /* Amarelo mais claro */
-            transform: scale(1.05);
+        .skill-box svg {
+            width: 40px;
+            height: 40px;
+            fill: #f9c802;
         }
 
-        .button img, .button svg {
-            width: 50px;
-            height: 50px;
+        .skill-box:hover {
+            transform: translateY(-5px);
+            background: #f9c802;
+            color: #000;
         }
 
-        @media (max-width: 768px) {
-            .card {
-                width: 320px;
-                height: 600px;
+        .location {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .location a {
+            text-decoration: none;
+            color: #fff;
+            background: rgba(51, 51, 51, 0.8);
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .location a:hover {
+            background: #f9c802;
+            color: #000;
+        }
+
+        .location a svg {
+            width: 20px;
+            height: 20px;
+            fill: #fff;
+        }
+
+        .location a:hover svg {
+            fill: #000;
+        }
+
+        @media (max-width: 480px) {
+            .name {
+                font-size: 1.2rem;
             }
 
-            .logo img {
-                max-width: 70px;
+            .social-icons a {
+                width: 25px;
+                height: 25px;
             }
 
-            .buttons {
-                gap: 10px;
+            .skill-box {
+                width: 60px;
+                height: 60px;
             }
 
-            .button img, .button svg {
-                width: 40px;
-                height: 40px;
+            .skill-box svg {
+                width: 30px;
+                height: 30px;
+            }
+
+            .location a {
+                padding: 8px 15px;
+                font-size: 0.8rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="card">
-        <!-- Logo -->
-        <div class="logo">
-            <img src="Logo%20New%20Planauto.png" alt="PlanAuto Logo">
+        <!-- Header -->
+        <div class="header">
+            <div class="profile-pic">
+                <img src="profile.jpg" alt="Foto de Perfil">
+            </div>
+            <div class="name">PlanAuto</div>
+            <div class="profession">Seminovos e Veículos</div>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/planautoseminovos_df/" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
+    <path d="M 16 3 C 8.83 3 3 8.83 3 16 L 3 34 C 3 41.17 8.83 47 16 47 L 34 47 C 41.17 47 47 41.17 47 34 L 47 16 C 47 8.83 41.17 3 34 3 L 16 3 z M 37 11 C 38.1 11 39 11.9 39 13 C 39 14.1 38.1 15 37 15 C 35.9 15 35 14.1 35 13 C 35 11.9 35.9 11 37 11 z M 25 14 C 31.07 14 36 18.93 36 25 C 36 31.07 31.07 36 25 36 C 18.93 36 14 31.07 14 25 C 14 18.93 18.93 14 25 14 z M 25 16 C 20.04 16 16 20.04 16 25 C 16 29.96 20.04 34 25 34 C 29.96 34 34 29.96 34 25 C 34 20.04 29.96 16 25 16 z"></path>
+</svg>
+
+                </a>
+                <a href="https://www.facebook.com/" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="120" height="120" viewBox="0 0 30 30">
+    <path d="M24,4H6C4.895,4,4,4.895,4,6v18c0,1.105,0.895,2,2,2h10v-9h-3v-3h3v-1.611C16,9.339,17.486,8,20.021,8 c1.214,0,1.856,0.09,2.16,0.131V11h-1.729C19.376,11,19,11.568,19,12.718V14h3.154l-0.428,3H19v9h5c1.105,0,2-0.895,2-2V6 C26,4.895,25.104,4,24,4z"></path>
+</svg>
+                </a>
+            </div>
         </div>
 
-        <!-- Título -->
-        <div class="title">Links PlanAuto</div>
+        <!-- Content -->
+        <div class="content">
+            <!-- Skills Section -->
+            <div class="section-title">Links</div>
+            <div class="skills">
+                <!-- Pix -->
+                <div class="skill-box" onclick="copyToClipboard('27523298000170')">
+                   <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="120" height="120" viewBox="0 0 30 30">
+<path d="M 15 1.0996094 C 13.975 1.0996094 12.949922 1.4895313 12.169922 2.2695312 L 7.1894531 7.25 L 7.3398438 7.25 C 8.6098437 7.25 9.7992188 7.740625 10.699219 8.640625 L 14.189453 12.130859 C 14.639453 12.570859 15.360547 12.570859 15.810547 12.130859 L 19.300781 8.640625 C 20.200781 7.740625 21.390156 7.25 22.660156 7.25 L 22.810547 7.25 L 17.830078 2.2695312 C 17.050078 1.4895313 16.025 1.0996094 15 1.0996094 z M 5.6894531 8.75 L 2.2695312 12.169922 C 0.70953125 13.729922 0.70953125 16.270078 2.2695312 17.830078 L 5.6894531 21.25 L 7.3398438 21.25 C 8.2098438 21.25 9.030625 20.910781 9.640625 20.300781 L 13.130859 16.810547 C 14.160859 15.780547 15.839141 15.780547 16.869141 16.810547 L 20.359375 20.300781 C 20.969375 20.910781 21.790156 21.25 22.660156 21.25 L 24.310547 21.25 L 27.730469 17.830078 C 29.290469 16.270078 29.290469 13.729922 27.730469 12.169922 L 24.310547 8.75 L 22.660156 8.75 C 21.790156 8.75 20.969375 9.0892188 20.359375 9.6992188 L 16.869141 13.189453 C 16.359141 13.699453 15.68 13.960938 15 13.960938 C 14.32 13.960938 13.640859 13.699453 13.130859 13.189453 L 9.640625 9.6992188 C 9.030625 9.0892187 8.2098437 8.75 7.3398438 8.75 L 5.6894531 8.75 z M 15 17.539062 C 14.7075 17.539062 14.414453 17.649141 14.189453 17.869141 L 10.699219 21.359375 C 9.7992188 22.259375 8.6098437 22.75 7.3398438 22.75 L 7.1894531 22.75 L 12.169922 27.730469 C 13.729922 29.290469 16.270078 29.290469 17.830078 27.730469 L 22.810547 22.75 L 22.660156 22.75 C 21.390156 22.75 20.200781 22.259375 19.300781 21.359375 L 15.810547 17.869141 C 15.585547 17.649141 15.2925 17.539062 15 17.539062 z"></path>
+</svg>
 
-        <!-- Botões -->
-        <div class="buttons">
-            <button class="button" onclick="copyToClipboard('27523298000170')">
-                <!-- Primeiro botão com SVG substituído -->
-                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="150" height="150" viewBox="0 0 50 50">
-                    <path d="M 25 0.0390625 C 22.84 0.0390625 20.799531 0.88015625 19.269531 2.4101562 L 9.6796875 12 L 12.929688 12 C 14.529687 12 16.039922 12.619766 17.169922 13.759766 L 23.939453 20.529297 C 24.519453 21.109297 25.480547 21.109531 26.060547 20.519531 L 32.830078 13.759766 C 33.960078 12.619766 35.470312 12 37.070312 12 L 40.320312 12 L 30.730469 2.4101562 C 29.200469 0.88015625 27.16 0.0390625 25 0.0390625 z M 7.6796875 14 L 2.4101562 19.269531 C -0.74984375 22.429531 -0.74984375 27.570469 2.4101562 30.730469 L 7.6796875 36 L 12.929688 36 C 13.999687 36 14.999766 35.580078 15.759766 34.830078 L 22.529297 28.060547 C 23.889297 26.700547 26.110703 26.700547 27.470703 28.060547 L 34.240234 34.830078 C 35.000234 35.580078 36.000312 36 37.070312 36 L 42.320312 36 L 47.589844 30.730469 C 50.749844 27.570469 50.749844 22.429531 47.589844 19.269531 L 42.320312 14 L 37.070312 14 C 36.000313 14 35.000234 14.419922 34.240234 15.169922 L 27.470703 21.939453 C 26.790703 22.619453 25.9 22.960938 25 22.960938 C 24.1 22.960937 23.209297 22.619453 22.529297 21.939453 L 15.759766 15.169922 C 14.999766 14.419922 13.999688 14 12.929688 14 L 7.6796875 14 z M 25 29.037109 C 24.615 29.038359 24.229453 29.185469 23.939453 29.480469 L 17.169922 36.240234 C 16.039922 37.380234 14.529687 38 12.929688 38 L 9.6796875 38 L 19.269531 47.589844 C 20.799531 49.119844 22.84 49.960938 25 49.960938 C 27.16 49.960938 29.200469 49.119844 30.730469 47.589844 L 40.320312 38 L 37.070312 38 C 35.470313 38 33.960078 37.380234 32.830078 36.240234 L 26.060547 29.470703 C 25.770547 29.180703 25.385 29.035859 25 29.037109 z"></path>
-                </svg>
-            </button>
-            <a href="https://g.page/r/CZdDZfQSEXXVEBM/review" class="button">
-                <!-- Segundo botão com novo SVG -->
-                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
-                    <path fill="#fbc02d" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12	s5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24s8.955,20,20,20	s20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path>
-                    <path fill="#e53935" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039	l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path>
-                    <path fill="#4caf50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36	c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path>
-                    <path fill="#1565c0" d="M43.611,20.083L43.595,20L42,20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571	c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
-                </svg>
-            </a>
-            <a href="https://planautoseminovos.com.br/" class="button">
-                <img src="https://img.icons8.com/ios-filled/50/000000/internet.png" alt="Site">
-            </a>
-            <a href="mailto:planautoseminovos@gmail.com" class="button">
-                <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="Email">
-            </a>
-            <a href="https://wa.me/message/FOND6LEM6FKIE1" class="button">
-                <img src="https://img.icons8.com/ios-filled/50/000000/whatsapp.png" alt="WhatsApp">
-            </a>
-            <a href="https://www.instagram.com/planautoseminovos_df/" class="button">
-                <img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" alt="Instagram">
-            </a>
+                    <span>Pix</span>
+                </div>
+
+                <!-- Google -->
+                <div class="skill-box">
+                    <a href="https://g.page/r/CZdDZfQSEXXVEBM/review" target="_blank">
+                       <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="96" height="96" viewBox="0 0 48 48">
+<path fill="#fbc02d" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12	s5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24s8.955,20,20,20	s20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#e53935" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039	l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4caf50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36	c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1565c0" d="M43.611,20.083L43.595,20L42,20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571	c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
+</svg>
+
+                        <span>Google</span>
+                    </a>
+                </div>
+
+                <!-- E-mail -->
+                <div class="skill-box" onclick="copyToClipboard('planautoseminovos@gmail.com')">
+                   <?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M9.878,14.546.744,5.411A4.986,4.986,0,0,1,5,3h7.294a7.037,7.037,0,0,0,4.675,8.7l-2.847,2.848A3.007,3.007,0,0,1,9.878,14.546Zm5.658,1.414a5.008,5.008,0,0,1-7.072,0L.046,7.542C.032,7.7,0,7.843,0,8V19a5.006,5.006,0,0,0,5,5H19a5.006,5.006,0,0,0,5-5V9.894a6.972,6.972,0,0,1-4.478,2.08ZM15,6h3V9a1,1,0,0,0,2,0V6h3a1,1,0,0,0,0-2H20V1a1,1,0,0,0-2,0V4H15A1,1,0,0,0,15,6Z"/></svg>
+
+                    <span>E-mail</span>
+                </div>
+            </div>
+
+            <!-- Address -->
+            <div class="section">
+                <div class="section-title">Endereço</div>
+                <p style="text-align: center; color: #ccc; font-size: 0.9rem;">
+                    Cidade do Automóvel <br>
+                    SCIA Quadra 15 Conjunto 10, 0 - Zona Industrial (Guará) - Brasília/DF - CEP 71250050
+                </p>
+            </div>
+
+            <!-- Location Buttons -->
+            <div class="location">
+                <a href="https://maps.app.goo.gl/hkkiuSp5g5V9ztM76" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="96" height="96" viewBox="0 0 48 48">
+<path fill="#48b564" d="M35.76,26.36h0.01c0,0-3.77,5.53-6.94,9.64c-2.74,3.55-3.54,6.59-3.77,8.06	C24.97,44.6,24.53,45,24,45s-0.97-0.4-1.06-0.94c-0.23-1.47-1.03-4.51-3.77-8.06c-0.42-0.55-0.85-1.12-1.28-1.7L28.24,22l8.33-9.88	C37.49,14.05,38,16.21,38,18.5C38,21.4,37.17,24.09,35.76,26.36z"></path><path fill="#fcc60e" d="M28.24,22L17.89,34.3c-2.82-3.78-5.66-7.94-5.66-7.94h0.01c-0.3-0.48-0.57-0.97-0.8-1.48L19.76,15	c-0.79,0.95-1.26,2.17-1.26,3.5c0,3.04,2.46,5.5,5.5,5.5C25.71,24,27.24,23.22,28.24,22z"></path><path fill="#2c85eb" d="M28.4,4.74l-8.57,10.18L13.27,9.2C15.83,6.02,19.69,4,24,4C25.54,4,27.02,4.26,28.4,4.74z"></path><path fill="#ed5748" d="M19.83,14.92L19.76,15l-8.32,9.88C10.52,22.95,10,20.79,10,18.5c0-3.54,1.23-6.79,3.27-9.3	L19.83,14.92z"></path><path fill="#5695f6" d="M28.24,22c0.79-0.95,1.26-2.17,1.26-3.5c0-3.04-2.46-5.5-5.5-5.5c-1.71,0-3.24,0.78-4.24,2L28.4,4.74	c3.59,1.22,6.53,3.91,8.17,7.38L28.24,22z"></path>
+</svg>
+                    Maps
+                </a>
+                <a href="https://m.uber.com/ul/?action=setPickup&dropoff[latitude]=-15.793607327834069&dropoff[longitude]=-47.97069709100618" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 32 32">
+<path d="M 16 3 C 8.8 3 3 8.8 3 16 C 3 23.2 8.8 29 16 29 C 23.2 29 29 23.2 29 16 C 29 8.8 23.2 3 16 3 z M 16 5 C 22.1 5 27 9.9 27 16 C 27 22.1 22.1 27 16 27 C 10.237727 27 5.5526049 22.62604 5.0507812 17 L 13 17 L 13 19 L 19 19 L 19 13 L 13 13 L 13 15 L 5.0507812 15 C 5.5526049 9.3739595 10.237727 5 16 5 z"></path>
+</svg>
+                    Uber
+                </a>
+                <a href="https://m.uber.com/ul/?action=setPickup&dropoff[latitude]=-15.793607327834069&dropoff[longitude]=-47.97069709100618" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
+<path d="M 14 3.9902344 C 8.4886661 3.9902344 4 8.4789008 4 13.990234 L 4 35.990234 C 4 41.501568 8.4886661 45.990234 14 45.990234 L 36 45.990234 C 41.511334 45.990234 46 41.501568 46 35.990234 L 46 13.990234 C 46 8.4789008 41.511334 3.9902344 36 3.9902344 L 14 3.9902344 z M 14 5.9902344 L 36 5.9902344 C 40.430666 5.9902344 44 9.5595687 44 13.990234 L 44 35.990234 C 44 40.4209 40.430666 43.990234 36 43.990234 L 14 43.990234 C 9.5693339 43.990234 6 40.4209 6 35.990234 L 6 13.990234 C 6 9.5595687 9.5693339 5.9902344 14 5.9902344 z M 25.96875 13 C 19.8761 13 14.936407 18.072623 14.9375 24.277344 C 14.9375 25.011344 14.9116 26.023096 14.681641 26.712891 C 14.566659 27.057788 14.41509 27.300301 14.25 27.443359 C 14.08491 27.586418 13.902012 27.681641 13.490234 27.681641 A 1.0001 1.0001 0 0 0 12.568359 29.068359 C 13.6148 31.554021 15.297378 33.244558 17.513672 34.234375 A 3 3 0 0 0 20.5 37 A 3 3 0 0 0 23.117188 35.458984 A 1.0001 1.0001 0 0 0 23.201172 35.466797 C 24.073025 35.527957 24.997979 35.552734 25.96875 35.552734 C 26.124757 35.552734 26.278895 35.541965 26.433594 35.535156 C 26.958005 36.409517 27.906917 37 29 37 C 30.656 37 32 35.656 32 34 C 32 33.903132 31.985517 33.809459 31.976562 33.714844 C 35.001389 31.69808 37 28.224463 37 24.277344 C 37 18.072718 32.0614 13 25.96875 13 z M 25.96875 15 C 30.9541 15 35 19.12797 35 24.277344 C 35 27.67834 33.227798 30.631802 30.59375 32.248047 A 1.0001 1.0001 0 0 0 30.591797 32.248047 C 30.128809 32.532499 29.632588 32.761035 29.121094 32.957031 L 28.246094 33.240234 C 27.722401 33.379821 27.185708 33.486755 26.628906 33.527344 A 1.0001 1.0001 0 0 0 26.619141 33.527344 C 26.410297 33.544744 26.19475 33.552734 25.96875 33.552734 C 25.069853 33.552734 24.231658 33.528458 23.449219 33.476562 A 3 3 0 0 0 20.5 31 A 3 3 0 0 0 18.052734 32.271484 C 16.716706 31.589664 15.761401 30.566527 14.980469 29.158203 C 15.156813 29.061733 15.412371 29.081783 15.558594 28.955078 C 16.081723 28.501761 16.389185 27.918306 16.580078 27.345703 C 16.961865 26.200497 16.9375 25.011344 16.9375 24.277344 C 16.936593 19.128065 20.9834 15 25.96875 15 z M 23.925781 20 A 1.223 1.223 0 1 0 23.925781 22.445312 A 1.223 1.223 0 1 0 23.925781 20 z M 30.777344 20 A 1.223 1.223 0 1 0 30.777344 22.445312 A 1.223 1.223 0 1 0 30.777344 20 z M 23.726562 25.220703 A 1.0001 1.0001 0 0 0 22.851562 26.640625 C 22.851562 26.640625 24.199025 29.435547 27.435547 29.435547 C 30.672069 29.435547 32.019531 26.640625 32.019531 26.640625 A 1.0002746 1.0002746 0 0 0 30.191406 25.828125 C 30.191406 25.828125 29.581025 27.435547 27.435547 27.435547 C 25.290069 27.435547 24.679687 25.828125 24.679688 25.828125 A 1.0001 1.0001 0 0 0 23.726562 25.220703 z"></path>
+</svg>
+                    Waze
+                </a>
+            </div>
         </div>
     </div>
+
     <script>
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
-                alert(`${text} copiado para a área de transferência!`);
-            }).catch(err => console.error('Erro ao copiar', err));
+                alert(text + " copiado com sucesso!");
+            });
         }
     </script>
 </body>
