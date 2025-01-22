@@ -5,202 +5,238 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - PlanAuto</title>
     <style>
-        /* Reset CSS */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: url('background.jpg') no-repeat center center/cover; /* Espaço para futuro background */
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+body {
+    font-family: 'Arial', sans-serif;
+    background: #1a1a1a url(''); /* Espaço para imagem de fundo */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden; /* Evita rolagem desnecessária */
+}
 
-        .card {
-            width: 90%;
-            max-width: 400px;
-            background: rgba(0, 0, 0, 0.8); /* Fundo translúcido do cartão */
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
+.card {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Fundo translúcido */
+    border-radius: 0; /* Remove bordas arredondadas para ocupar a tela toda */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribui os elementos proporcionalmente */
+    padding: 20px;
+}
 
-        /* Header */
-        .header {
-            background: #f9c802;
-            padding: 30px 20px;
-            text-align: center;
-            position: relative;
-            border-bottom-left-radius: 50px;
-            border-bottom-right-radius: 50px;
-        }
+/* Header */
+.header {
+    background: #f9c802;
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
 
-        .profile-pic {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin: 0 auto 10px;
-            border: 2px solid #fff;
-        }
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 10px;
+    border: 3px solid #fff;
+}
 
-        .profile-pic img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-        .name {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
+.name {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
 
-        .profession {
-            font-size: 0.9rem;
-            color: #444;
-        }
+.profession {
+    font-size: 1rem;
+    color: #444;
+}
 
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 15px;
-        }
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
 
-        .social-icons a {
-            background: rgba(255, 255, 255, 0.7);
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease, background 0.3s ease;
-        }
+.social-icons a {
+    background: #fff;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
 
-        .social-icons a:hover {
-            background: #000;
-            transform: scale(1.1);
-        }
+.social-icons a:hover {
+    background: #000;
+    transform: scale(1.1);
+}
 
-        .social-icons svg {
-            width: 20px;
-            height: 20px;
-        }
+.social-icons svg {
+    width: 20px;
+    height: 20px;
+}
 
-        /* Content */
-        .content {
-            padding: 20px;
-        }
+/* Content */
+.content {
+    flex: 1; /* Faz o conteúdo ocupar o restante do espaço disponível */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px; /* Espaçamento entre seções */
+    overflow-y: auto; /* Permite rolagem se necessário */
+}
 
-        .section-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-align: center;
-        }
+.section-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
 
-        .skills {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
+.skills {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
 
-        .skill-box {
-            width: 70px;
-            height: 70px;
-            background: rgba(51, 51, 51, 0.8);
-            border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            text-align: center;
-            font-size: 0.8rem;
-            transition: transform 0.3s ease, background 0.3s ease;
-            cursor: pointer;
-        }
+.skill-box {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.1); /* Fundo translúcido */
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
 
-        .skill-box svg {
-            width: 40px;
-            height: 40px;
-            fill: #f9c802;
-        }
+.skill-box svg {
+    width: 40px;
+    height: 40px;
+    fill: #f9c802;
+}
 
-        .skill-box:hover {
-            transform: translateY(-5px);
-            background: #f9c802;
-            color: #000;
-        }
+.skill-box:hover {
+    transform: translateY(-5px);
+    background: #f9c802;
+    color: #000;
+}
 
-        .location {
-            margin-top: 15px;
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+.location {
+    margin-top: 10px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
 
-        .location a {
-            text-decoration: none;
-            color: #fff;
-            background: rgba(51, 51, 51, 0.8);
-            padding: 10px 20px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
+.location a {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1); /* Fundo translúcido */
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.3s ease;
+    font-size: 1rem;
+}
 
-        .location a:hover {
-            background: #f9c802;
-            color: #000;
-        }
+.location a:hover {
+    background: #f9c802;
+    color: #000;
+}
 
-        .location a svg {
-            width: 20px;
-            height: 20px;
-            fill: #fff;
-        }
+.location svg {
+    width: 20px;
+    height: 20px;
+}
 
-        .location a:hover svg {
-            fill: #000;
-        }
+/* Address Section */
+.address {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.5;
+}
 
-        @media (max-width: 480px) {
-            .name {
-                font-size: 1.2rem;
-            }
+/* Responsividade */
+@media (max-width: 480px) {
+    .header {
+        padding: 30px 10px;
+    }
 
-            .social-icons a {
-                width: 25px;
-                height: 25px;
-            }
+    .profile-pic {
+        width: 80px;
+        height: 80px;
+    }
 
-            .skill-box {
-                width: 60px;
-                height: 60px;
-            }
+    .name {
+        font-size: 1.5rem;
+    }
 
-            .skill-box svg {
-                width: 30px;
-                height: 30px;
-            }
+    .social-icons a {
+        width: 30px;
+        height: 30px;
+    }
 
-            .location a {
-                padding: 8px 15px;
-                font-size: 0.8rem;
-            }
-        }
+    .content {
+        gap: 15px;
+    }
+
+    .skill-box {
+        width: 70px;
+        height: 70px;
+    }
+
+    .skill-box svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .location a {
+        padding: 8px 15px;
+        font-size: 0.8rem;
+        gap: 8px;
+    }
+
+    .address {
+        font-size: 0.9rem;
+    }
+}
+
     </style>
 </head>
 <body>
