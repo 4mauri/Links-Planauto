@@ -4,272 +4,255 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - PlanAuto</title>
-    <style>
-        /* Reset CSS */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+   <style>
+    /* Reset CSS */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box; /* Define borda como parte do tamanho total */
+    }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: #1a1a1a url(''); /* Espaço para imagem de fundo */
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            width: 100vw;
-            overflow: hidden;
-        }
+    /* Configurações básicas da página */
+    body {
+        font-family: 'Arial', sans-serif;
+        background: #1a1a1a url(''); /* Adicione o link da imagem de fundo, se necessário */
+        background-size: cover; /* Ajusta a imagem para cobrir todo o fundo */
+        background-position: center;
+        color: #fff; /* Define a cor padrão do texto */
+        display: flex;
+        justify-content: center; /* Centraliza horizontalmente o conteúdo */
+        align-items: center; /* Centraliza verticalmente o conteúdo */
+        height: 100vh; /* Define altura total da janela */
+        width: 100vw; /* Define largura total da janela */
+        overflow: hidden; /* Remove barras de rolagem */
+    }
 
-        .card {
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8); /* Fundo translúcido */
-            border-radius: 0; /* Remove bordas arredondadas */
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 20px;
-        }
+    /* Card principal ocupando toda a tela */
+    .card {
+        width: 100%; /* Largura total da tela */
+        height: 100%; /* Altura total da tela */
+        background: rgba(0, 0, 0, 0.8); /* Fundo translúcido */
+        border-radius: 0; /* Sem bordas arredondadas */
+        display: flex; /* Flexbox para organizar o layout */
+        flex-direction: column; /* Organização vertical dos elementos */
+        justify-content: space-between; /* Espaça os elementos proporcionalmente */
+        padding: 20px; /* Espaçamento interno do card */
+    }
 
-        /* Header */
+    /* Header (parte superior do card) */
+    .header {
+        background: #f9c802; /* Fundo amarelo */
+        padding: 40px 20px; /* Espaçamento interno */
+        text-align: center; /* Centraliza o conteúdo */
+        border-bottom-left-radius: 10px; /* Borda arredondada inferior esquerda */
+        border-bottom-right-radius: 10px; /* Borda arredondada inferior direita */
+    }
+
+    /* Foto de perfil */
+    .profile-pic {
+        width: 150px; /* Largura do círculo da foto */
+        height: 150px; /* Altura do círculo da foto */
+        border-radius: 50%; /* Torna o contêiner circular */
+        overflow: hidden; /* Garante que o conteúdo respeite o contêiner */
+        margin: 0 auto 10px; /* Centraliza e adiciona espaçamento inferior */
+        border: 3px solid #fff; /* Borda branca */
+        background: #000; /* Fundo preto */
+    }
+
+    .profile-pic img {
+        width: 100%; /* Preenche todo o círculo */
+        height: 100%; /* Mantém a proporção dentro do círculo */
+        object-fit: cover; /* Ajusta a imagem para cobrir o círculo */
+    }
+
+    /* Nome e profissão no header */
+    .name {
+        font-size: 1.8rem; /* Tamanho do texto do nome */
+        font-weight: bold; /* Texto em negrito */
+        margin-bottom: 5px; /* Espaçamento inferior */
+    }
+
+    .profession {
+        font-size: 1rem; /* Tamanho do texto da profissão */
+        color: #444; /* Cor do texto */
+    }
+
+    /* Ícones sociais */
+    .social-icons {
+        display: flex; /* Exibe os ícones em linha */
+        justify-content: center; /* Centraliza os ícones */
+        gap: 20px; /* Espaçamento entre os ícones */
+        margin-top: 20px; /* Espaçamento superior */
+    }
+
+    .social-icons a {
+        background: #fff; /* Fundo branco do ícone */
+        width: 35px; /* Largura do contêiner do ícone */
+        height: 35px; /* Altura do contêiner do ícone */
+        border-radius: 10%; /* Bordas arredondadas */
+        display: flex; /* Flexbox para centralizar o ícone */
+        align-items: center; /* Alinha verticalmente */
+        justify-content: center; /* Alinha horizontalmente */
+        transition: transform 0.3s ease, background 0.3s ease; /* Animação ao passar o mouse */
+    }
+
+    .social-icons a:hover {
+        background: #000; /* Fundo preto ao passar o mouse */
+        transform: scale(1.1); /* Aumenta o tamanho ao passar o mouse */
+    }
+
+    .social-icons svg {
+        width: 30px; /* Tamanho do SVG */
+        height: 30px; /* Altura do SVG */
+        fill: #f9c802; /* Cor do ícone */
+    }
+
+    /* Seção de conteúdo principal */
+    .content {
+        flex: 1; /* Expande para ocupar o espaço restante */
+        display: flex; /* Flexbox para organizar elementos */
+        flex-direction: column; /* Organização vertical */
+        justify-content: center; /* Centraliza os elementos verticalmente */
+        gap: 30px; /* Espaçamento proporcional entre seções */
+        overflow-y: auto; /* Adiciona rolagem vertical se necessário */
+    }
+
+    .section-title {
+        font-size: 2rem; /* Tamanho do texto do título */
+        font-weight: bold; /* Texto em negrito */
+        text-align: center; /* Centraliza o texto */
+        margin-bottom: 20px; /* Espaçamento inferior */
+    }
+
+    /* Botões de links (Pix, E-mail, etc.) */
+    .skills {
+        display: flex; /* Exibe os botões em linha */
+        justify-content: center; /* Centraliza os botões */
+        gap: 40px; /* Espaçamento entre os botões */
+        flex-wrap: wrap; /* Permite que os botões quebrem linha */
+    }
+
+    .skill-box {
+        width: 150px; /* Largura do botão */
+        height: 150px; /* Altura do botão */
+        background: rgba(255, 255, 255, 0.1); /* Fundo translúcido */
+        border-radius: 10px; /* Bordas arredondadas */
+        display: flex; /* Flexbox para centralizar o conteúdo */
+        flex-direction: column; /* Organização vertical */
+        justify-content: center; /* Centraliza verticalmente o conteúdo */
+        align-items: center; /* Centraliza horizontalmente o conteúdo */
+        color: #fff; /* Cor do texto */
+        text-align: center; /* Alinhamento central do texto */
+        font-size: 0.9rem; /* Tamanho do texto */
+        transition: transform 0.3s ease; /* Animação ao passar o mouse */
+        cursor: pointer; /* Mostra o cursor de clique */
+    }
+
+    .skill-box svg {
+        width: 80px; /* Tamanho do SVG no botão */
+        height: 80px; /* Altura do SVG no botão */
+        fill: #f9c802; /* Cor do ícone */
+    }
+
+    .skill-box:hover {
+        transform: translateY(-5px); /* Move o botão para cima ao passar o mouse */
+        background: #f9c802; /* Fundo amarelo */
+        color: #000; /* Cor do texto preta */
+    }
+
+    /* Seção de localizações (Maps, Uber, etc.) */
+    .location {
+        margin-top: 10px; /* Espaçamento superior */
+        display: flex; /* Exibe os botões em linha */
+        gap: 15px; /* Espaçamento entre os botões */
+        justify-content: center; /* Centraliza os botões */
+    }
+
+    .location a {
+        text-decoration: none; /* Remove o sublinhado */
+        color: #fff; /* Cor do texto */
+        background: rgba(255, 255, 255, 0.1); /* Fundo translúcido */
+        padding: 10px 20px; /* Espaçamento interno */
+        border-radius: 10px; /* Bordas arredondadas */
+        display: flex; /* Flexbox para centralizar o conteúdo */
+        align-items: center; /* Alinha verticalmente o texto e ícone */
+        gap: 10px; /* Espaçamento entre texto e ícone */
+        transition: background 0.3s ease; /* Animação ao passar o mouse */
+        font-size: 1rem; /* Tamanho do texto */
+    }
+
+    .location a:hover {
+        background: #f9c802; /* Fundo amarelo ao passar o mouse */
+        color: #000; /* Texto preto ao passar o mouse */
+    }
+
+    .location svg {
+        width: 20px; /* Tamanho do SVG */
+        height: 20px; /* Altura do SVG */
+    }
+
+    /* Seção de endereço */
+    .address {
+        margin-top: 20px; /* Espaçamento superior */
+        text-align: center; /* Centraliza o texto */
+        font-size: 1rem; /* Tamanho do texto */
+        color: #ccc; /* Cor do texto */
+        line-height: 1.5; /* Espaçamento entre linhas */
+    }
+
+    /* Responsividade para dispositivos menores */
+    @media (max-width: 480px) {
         .header {
-            background: #f9c802;
-            padding: 20px;
-            text-align: center;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
+            padding: 30px 10px; /* Ajusta o espaçamento interno */
         }
 
         .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin: 0 auto 10px;
-            border: 3px solid #fff;
-            background: #000;
-        }
-
-        .profile-pic img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* Evita cortar a imagem */
+            width: 100px; /* Reduz o tamanho da foto de perfil */
+            height: 100px;
         }
 
         .name {
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .profession {
-            font-size: 1rem;
-            color: #444;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
+            font-size: 1.5rem; /* Reduz o tamanho do texto do nome */
         }
 
         .social-icons a {
-            background: #fff;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease, background 0.3s ease;
+            width: 30px; /* Reduz os ícones sociais */
+            height: 30px;
         }
 
-        .social-icons a:hover {
-            background: #000;
-            transform: scale(1.1);
-        }
-
-        .social-icons svg {
-            width: 24px;
-            height: 24px;
-        }
-
-        /* Content */
         .content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 30px;
-            overflow-y: auto;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .skills {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+            gap: 15px; /* Reduz o espaçamento entre seções */
         }
 
         .skill-box {
-            width: 100px;
+            width: 100px; /* Reduz o tamanho dos botões */
             height: 100px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            text-align: center;
-            font-size: 0.9rem;
-            transition: transform 0.3s ease;
-            cursor: pointer;
         }
 
         .skill-box svg {
-            width: 40px;
-            height: 40px;
-            fill: #f9c802;
-        }
-
-        .skill-box:hover {
-            transform: translateY(-5px);
-            background: #f9c802;
-            color: #000;
-        }
-
-        .location {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
+            width: 50px; /* Reduz o tamanho do SVG nos botões */
+            height: 50px;
         }
 
         .location a {
-            text-decoration: none;
-            color: #fff;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 10px 15px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: background 0.3s ease;
-            font-size: 0.9rem;
+            padding: 8px 15px; /* Ajusta o espaçamento interno */
+            font-size: 0.8rem; /* Reduz o tamanho do texto */
+            gap: 8px; /* Ajusta o espaçamento entre texto e ícone */
         }
 
-        .location a:hover {
-            background: #f9c802;
-            color: #000;
-        }
-
-        .location svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Address Section */
         .address {
-            margin-top: 10px;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #ccc;
-            line-height: 1.5;
+            font-size: 0.9rem; /* Reduz o tamanho do texto */
         }
+    }
+</style>
 
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .profile-pic {
-                width: 120px;
-                height: 120px;
-            }
-
-            .name {
-                font-size: 1.5rem;
-            }
-
-            .social-icons a {
-                width: 30px;
-                height: 30px;
-            }
-
-            .content {
-                gap: 15px;
-            }
-
-            .skill-box {
-                width: 80px;
-                height: 80px;
-            }
-
-            .skill-box svg {
-                width: 30px;
-                height: 30px;
-            }
-
-            .location a {
-                padding: 8px 10px;
-                font-size: 0.8rem;
-            }
-
-            .address {
-                font-size: 0.8rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header {
-                padding: 15px;
-            }
-
-            .profile-pic {
-                width: 100px;
-                height: 100px;
-            }
-
-            .name {
-                font-size: 1.2rem;
-            }
-
-            .content {
-                gap: 10px;
-            }
-
-            .skill-box {
-                width: 70px;
-                height: 70px;
-            }
-
-            .location a {
-                padding: 5px 8px;
-                font-size: 0.7rem;
-            }
-
-            .address {
-                font-size: 0.7rem;
-            }
-        }
-    </style>
 </head>
 <body>
     <div class="card">
         <!-- Header -->
         <div class="header">
             <div class="profile-pic">
-                <img src="Logo-New-Planauto.jpg"alt="Foto de Perfil">
+                <img src="Logo New Planauto.png" alt="Foto de Perfil">
             </div>
             <div class="name">PlanAuto</div>
             <div class="profession">Seminovos e Veículos</div>
@@ -358,11 +341,17 @@
     </div>
 
     <script>
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                alert(text + " copiado com sucesso!");
-            });
+        // Função para copiar texto de forma segura
+        async function secureCopy(text) {
+            try {
+                await navigator.clipboard.writeText(text);
+                alert(`Copiado: ${text}`);
+            } catch (err) {
+                console.error('Falha ao copiar:', err);
+            }
         }
     </script>
+</body>
+</html>
 </body>
 </html>
