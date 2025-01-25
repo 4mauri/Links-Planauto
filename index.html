@@ -5,245 +5,263 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - PlanAuto</title>
     <style>
-/* Reset CSS */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: 'Arial', sans-serif;
-    background: #1a1a1a url(''); /* Espaço para imagem de fundo */
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden; /* Evita rolagem desnecessária */
-}
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #1a1a1a url(''); /* Espaço para imagem de fundo */
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
 
-.card {
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8); /* Fundo translúcido */
-    border-radius: 0; /* Remove bordas arredondadas para ocupar a tela toda */
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Distribui os elementos proporcionalmente */
-    padding: 20px;
-}
+        .card {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8); /* Fundo translúcido */
+            border-radius: 0; /* Remove bordas arredondadas */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+        }
 
-/* Header */
-.header {
-    background: #f9c802;
-    padding: 40px 20px;
-    text-align: center;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
+        /* Header */
+        .header {
+            background: #f9c802;
+            padding: 20px;
+            text-align: center;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
 
-.profile-pic {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 auto 10px;
-    border: 3px solid #fff;
-    background: #000;
-  
-    
-}
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 10px;
+            border: 3px solid #fff;
+            background: #000;
+        }
 
-.profile-pic img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-fit: contain; /* Ajusta a imagem para caber completamente */
-    margin: auto; /* Centraliza a imagem dentro do container */
-}
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Evita cortar a imagem */
+        }
 
-.name {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #000;
-}
+        .name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
 
-.profession {
-    font-size: 1rem;
-    color: #444;
-}
+        .profession {
+            font-size: 1rem;
+            color: #444;
+        }
 
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-}
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
 
-.social-icons a {
-    background: #fff;
-    width: 35px;
-    height: 35px;
-    border-radius: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 1.0s ease, background 1.0s ease;
-}
+        .social-icons a {
+            background: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
 
-.social-icons a:hover {
-    background: #000;
-    transform: scale(1.1);
-}
+        .social-icons a:hover {
+            background: #000;
+            transform: scale(1.1);
+        }
 
-.social-icons svg {
-    width: 30px;
-    height: 30px;
-}
+        .social-icons svg {
+            width: 24px;
+            height: 24px;
+        }
 
-/* Content */
-.content {
-    flex: 1; /* Faz o conteúdo ocupar o restante do espaço disponível */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 30px; /* Espaçamento entre seções */
-    overflow-y: auto; /* Permite rolagem se necessário */
-}
+        /* Content */
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 30px;
+            overflow-y: auto;
+        }
 
-.section-title {
-    font-size: 2.0rem;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-}
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+        }
 
-.skills {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-}
+        .skills {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
 
-.skill-box {
-    width: 100px;
-    height: 100px;
-    background: rgba(255, 255, 255, 0.1); /* Fundo translúcido */
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    text-align: center;
-    font-size: 1.9rem;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-}
+        .skill-box {
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
 
-.skill-box svg {
-    width: 40px;
-    height: 40px;
-    fill: #f9c802;
-}
+        .skill-box svg {
+            width: 40px;
+            height: 40px;
+            fill: #f9c802;
+        }
 
-.skill-box:hover {
-    transform: translateY(-5px);
-    background: #f9c802;
-    color: #000;
-}
+        .skill-box:hover {
+            transform: translateY(-5px);
+            background: #f9c802;
+            color: #000;
+        }
 
-.location {
-    margin-top: 10px;
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-}
+        .location {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
 
-.location a {
-    text-decoration: none;
-    color: #fff;
-    background: rgba(255, 255, 255, 0.1); /* Fundo translúcido */
-    padding: 10px 20px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: background 0.3s ease;
-    font-size: 1rem;
-}
+        .location a {
+            text-decoration: none;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s ease;
+            font-size: 0.9rem;
+        }
 
-.location a:hover {
-    background: #f9c802;
-    color: #000;
-}
+        .location a:hover {
+            background: #f9c802;
+            color: #000;
+        }
 
-.location svg {
-    width: 20px;
-    height: 20px;
-    Color: #fff;
-}
+        .location svg {
+            width: 20px;
+            height: 20px;
+        }
 
-/* Address Section */
-.address {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 1rem;
-    color: #ccc;
-    line-height: 1.5;
-}
+        /* Address Section */
+        .address {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #ccc;
+            line-height: 1.5;
+        }
 
-/* Responsividade */
-@media (max-width: 480px) {
-    .header {
-        padding: 30px 10px;
-    }
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .profile-pic {
+                width: 120px;
+                height: 120px;
+            }
 
-    .profile-pic {
-        width: 80px;
-        height: 80px;
-    }
+            .name {
+                font-size: 1.5rem;
+            }
 
-    .name {
-        font-size: 1.5rem;
-    }
+            .social-icons a {
+                width: 30px;
+                height: 30px;
+            }
 
-    .social-icons a {
-        width: 30px;
-        height: 30px;
-    }
+            .content {
+                gap: 15px;
+            }
 
-    .content {
-        gap: 15px;
-    }
+            .skill-box {
+                width: 80px;
+                height: 80px;
+            }
 
-    .skill-box {
-        width: 70px;
-        height: 70px;
-    }
+            .skill-box svg {
+                width: 30px;
+                height: 30px;
+            }
 
-    .skill-box svg {
-        width: 30px;
-        height: 30px;
-    }
+            .location a {
+                padding: 8px 10px;
+                font-size: 0.8rem;
+            }
 
-    .location a {
-        padding: 8px 15px;
-        font-size: 0.8rem;
-        gap: 8px;
-    }
+            .address {
+                font-size: 0.8rem;
+            }
+        }
 
-    .address {
-        font-size: 0.9rem;
-    }
-}
+        @media (max-width: 480px) {
+            .header {
+                padding: 15px;
+            }
 
+            .profile-pic {
+                width: 100px;
+                height: 100px;
+            }
+
+            .name {
+                font-size: 1.2rem;
+            }
+
+            .content {
+                gap: 10px;
+            }
+
+            .skill-box {
+                width: 70px;
+                height: 70px;
+            }
+
+            .location a {
+                padding: 5px 8px;
+                font-size: 0.7rem;
+            }
+
+            .address {
+                font-size: 0.7rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -251,10 +269,10 @@ body {
         <!-- Header -->
         <div class="header">
             <div class="profile-pic">
-                <img src="Logo-New-Planauto.jpg" alt="Foto de Perfil">
+                <img src="Logo New Planauto.png" alt="Foto de Perfil">
             </div>
             <div class="name">PlanAuto</div>
-            <div class="profession">Seminovos</div>
+            <div class="profession">Seminovos e Veículos</div>
             <div class="social-icons">
                 <a href="https://www.instagram.com/planautoseminovos_df/" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
@@ -323,14 +341,16 @@ body {
                 </a>
                 <a href="https://m.uber.com/ul/?action=setPickup&dropoff[latitude]=-15.793607327834069&dropoff[longitude]=-47.97069709100618" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 32 32">
-<path d="M 16 3 C 8.8 3 3 8.8 3 16 C 3 23.2 8.8 29 16 29 C 23.2 29 29 23.2 29 16 C 29 8.8 23.2 3 16 3 z M 16 5 C 22.1 5 27 9.9 27 16 C 27 22.1 22.1 27 16 27 C 10.237727 27 5.5526049 22.62604 5.0507812 17 L 13 17 L 13 19 L 19 19 L 19 13 L 13 13 L 13 15 L 5.0507812 15 C 5.5526049 9.3739595 10.237727 5 16 5 z"></path>
+    <path fill="white" d="M 16 3 C 8.8 3 3 8.8 3 16 C 3 23.2 8.8 29 16 29 C 23.2 29 29 23.2 29 16 C 29 8.8 23.2 3 16 3 z M 16 5 C 22.1 5 27 9.9 27 16 C 27 22.1 22.1 27 16 27 C 10.237727 27 5.5526049 22.62604 5.0507812 17 L 13 17 L 13 19 L 19 19 L 19 13 L 13 13 L 13 15 L 5.0507812 15 C 5.5526049 9.3739595 10.237727 5 16 5 z"></path>
 </svg>
+
                     Uber
                 </a>
                 <a href="https://m.uber.com/ul/?action=setPickup&dropoff[latitude]=-15.793607327834069&dropoff[longitude]=-47.97069709100618" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
-<path d="M 14 3.9902344 C 8.4886661 3.9902344 4 8.4789008 4 13.990234 L 4 35.990234 C 4 41.501568 8.4886661 45.990234 14 45.990234 L 36 45.990234 C 41.511334 45.990234 46 41.501568 46 35.990234 L 46 13.990234 C 46 8.4789008 41.511334 3.9902344 36 3.9902344 L 14 3.9902344 z M 14 5.9902344 L 36 5.9902344 C 40.430666 5.9902344 44 9.5595687 44 13.990234 L 44 35.990234 C 44 40.4209 40.430666 43.990234 36 43.990234 L 14 43.990234 C 9.5693339 43.990234 6 40.4209 6 35.990234 L 6 13.990234 C 6 9.5595687 9.5693339 5.9902344 14 5.9902344 z M 25.96875 13 C 19.8761 13 14.936407 18.072623 14.9375 24.277344 C 14.9375 25.011344 14.9116 26.023096 14.681641 26.712891 C 14.566659 27.057788 14.41509 27.300301 14.25 27.443359 C 14.08491 27.586418 13.902012 27.681641 13.490234 27.681641 A 1.0001 1.0001 0 0 0 12.568359 29.068359 C 13.6148 31.554021 15.297378 33.244558 17.513672 34.234375 A 3 3 0 0 0 20.5 37 A 3 3 0 0 0 23.117188 35.458984 A 1.0001 1.0001 0 0 0 23.201172 35.466797 C 24.073025 35.527957 24.997979 35.552734 25.96875 35.552734 C 26.124757 35.552734 26.278895 35.541965 26.433594 35.535156 C 26.958005 36.409517 27.906917 37 29 37 C 30.656 37 32 35.656 32 34 C 32 33.903132 31.985517 33.809459 31.976562 33.714844 C 35.001389 31.69808 37 28.224463 37 24.277344 C 37 18.072718 32.0614 13 25.96875 13 z M 25.96875 15 C 30.9541 15 35 19.12797 35 24.277344 C 35 27.67834 33.227798 30.631802 30.59375 32.248047 A 1.0001 1.0001 0 0 0 30.591797 32.248047 C 30.128809 32.532499 29.632588 32.761035 29.121094 32.957031 L 28.246094 33.240234 C 27.722401 33.379821 27.185708 33.486755 26.628906 33.527344 A 1.0001 1.0001 0 0 0 26.619141 33.527344 C 26.410297 33.544744 26.19475 33.552734 25.96875 33.552734 C 25.069853 33.552734 24.231658 33.528458 23.449219 33.476562 A 3 3 0 0 0 20.5 31 A 3 3 0 0 0 18.052734 32.271484 C 16.716706 31.589664 15.761401 30.566527 14.980469 29.158203 C 15.156813 29.061733 15.412371 29.081783 15.558594 28.955078 C 16.081723 28.501761 16.389185 27.918306 16.580078 27.345703 C 16.961865 26.200497 16.9375 25.011344 16.9375 24.277344 C 16.936593 19.128065 20.9834 15 25.96875 15 z M 23.925781 20 A 1.223 1.223 0 1 0 23.925781 22.445312 A 1.223 1.223 0 1 0 23.925781 20 z M 30.777344 20 A 1.223 1.223 0 1 0 30.777344 22.445312 A 1.223 1.223 0 1 0 30.777344 20 z M 23.726562 25.220703 A 1.0001 1.0001 0 0 0 22.851562 26.640625 C 22.851562 26.640625 24.199025 29.435547 27.435547 29.435547 C 30.672069 29.435547 32.019531 26.640625 32.019531 26.640625 A 1.0002746 1.0002746 0 0 0 30.191406 25.828125 C 30.191406 25.828125 29.581025 27.435547 27.435547 27.435547 C 25.290069 27.435547 24.679687 25.828125 24.679688 25.828125 A 1.0001 1.0001 0 0 0 23.726562 25.220703 z"></path>
+    <path fill="white" d="M 14 3.9902344 C 8.4886661 3.9902344 4 8.4789008 4 13.990234 L 4 35.990234 C 4 41.501568 8.4886661 45.990234 14 45.990234 L 36 45.990234 C 41.511334 45.990234 46 41.501568 46 35.990234 L 46 13.990234 C 46 8.4789008 41.511334 3.9902344 36 3.9902344 L 14 3.9902344 z M 14 5.9902344 L 36 5.9902344 C 40.430666 5.9902344 44 9.5595687 44 13.990234 L 44 35.990234 C 44 40.4209 40.430666 43.990234 36 43.990234 L 14 43.990234 C 9.5693339 43.990234 6 40.4209 6 35.990234 L 6 13.990234 C 6 9.5595687 9.5693339 5.9902344 14 5.9902344 z M 25.96875 13 C 19.8761 13 14.936407 18.072623 14.9375 24.277344 C 14.9375 25.011344 14.9116 26.023096 14.681641 26.712891 C 14.566659 27.057788 14.41509 27.300301 14.25 27.443359 C 14.08491 27.586418 13.902012 27.681641 13.490234 27.681641 A 1.0001 1.0001 0 0 0 12.568359 29.068359 C 13.6148 31.554021 15.297378 33.244558 17.513672 34.234375 A 3 3 0 0 0 20.5 37 A 3 3 0 0 0 23.117188 35.458984 A 1.0001 1.0001 0 0 0 23.201172 35.466797 C 24.073025 35.527957 24.997979 35.552734 25.96875 35.552734 C 26.124757 35.552734 26.278895 35.541965 26.433594 35.535156 C 26.958005 36.409517 27.906917 37 29 37 C 30.656 37 32 35.656 32 34 C 32 33.903132 31.985517 33.809459 31.976562 33.714844 C 35.001389 31.69808 37 28.224463 37 24.277344 C 37 18.072718 32.0614 13 25.96875 13 z M 25.96875 15 C 30.9541 15 35 19.12797 35 24.277344 C 35 27.67834 33.227798 30.631802 30.59375 32.248047 A 1.0001 1.0001 0 0 0 30.591797 32.248047 C 30.128809 32.532499 29.632588 32.761035 29.121094 32.957031 L 28.246094 33.240234 C 27.722401 33.379821 27.185708 33.486755 26.628906 33.527344 A 1.0001 1.0001 0 0 0 26.619141 33.527344 C 26.410297 33.544744 26.19475 33.552734 25.96875 33.552734 C 25.069853 33.552734 24.231658 33.528458 23.449219 33.476562 A 3 3 0 0 0 20.5 31 A 3 3 0 0 0 18.052734 32.271484 C 16.716706 31.589664 15.761401 30.566527 14.980469 29.158203 C 15.156813 29.061733 15.412371 29.081783 15.558594 28.955078 C 16.081723 28.501761 16.389185 27.918306 16.580078 27.345703 C 16.961865 26.200497 16.9375 25.011344 16.9375 24.277344 C 16.936593 19.128065 20.9834 15 25.96875 15 z M 23.925781 20 A 1.223 1.223 0 1 0 23.925781 22.445312 A 1.223 1.223 0 1 0 23.925781 20 z M 30.777344 20 A 1.223 1.223 0 1 0 30.777344 22.445312 A 1.223 1.223 0 1 0 30.777344 20 z M 23.726562 25.220703 A 1.0001 1.0001 0 0 0 22.851562 26.640625 C 22.851562 26.640625 24.199025 29.435547 27.435547 29.435547 C 30.672069 29.435547 32.019531 26.640625 32.019531 26.640625 A 1.0002746 1.0002746 0 0 0 30.191406 25.828125 C 30.191406 25.828125 29.581025 27.435547 27.435547 27.435547 C 25.290069 27.435547 24.679687 25.828125 24.679688 25.828125 A 1.0001 1.0001 0 0 0 23.726562 25.220703 z"></path>
 </svg>
+
                     Waze
                 </a>
             </div>
