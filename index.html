@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - PlanAuto</title>
-   <style>
+  <style>
     /* Reset CSS */
     * {
         margin: 0;
         padding: 0;
-        box-sizing: border-box; /* Define borda como parte do tamanho total */
+        box-sizing: border-box; /* Define a borda como parte do tamanho total */
     }
 
     /* Configurações básicas da página */
@@ -32,17 +32,16 @@
         width: 100%; /* Largura total da tela */
         height: 100%; /* Altura total da tela */
         background: rgba(0, 0, 0, 0.8); /* Fundo translúcido */
-        border-radius: 0; /* Sem bordas arredondadas */
         display: flex; /* Flexbox para organizar o layout */
         flex-direction: column; /* Organização vertical dos elementos */
         justify-content: space-between; /* Espaça os elementos proporcionalmente */
-        padding: 20px; /* Espaçamento interno do card */
+        padding: 5vh 5vw; /* Margens internas proporcionais */
     }
 
     /* Header (parte superior do card) */
     .header {
         background: #f9c802; /* Fundo amarelo */
-        padding: 40px 20px; /* Espaçamento interno */
+        padding: 5vh 2vw; /* Espaçamento interno proporcional */
         text-align: center; /* Centraliza o conteúdo */
         border-bottom-left-radius: 10px; /* Borda arredondada inferior esquerda */
         border-bottom-right-radius: 10px; /* Borda arredondada inferior direita */
@@ -50,12 +49,12 @@
 
     /* Foto de perfil */
     .profile-pic {
-        width: 150px; /* Largura do círculo da foto */
-        height: 150px; /* Altura do círculo da foto */
+        width: 12vh; /* Proporcional à altura da janela */
+        height: 12vh; /* Torna o círculo proporcional */
         border-radius: 50%; /* Torna o contêiner circular */
         overflow: hidden; /* Garante que o conteúdo respeite o contêiner */
-        margin: 0 auto 10px; /* Centraliza e adiciona espaçamento inferior */
-        border: 3px solid #fff; /* Borda branca */
+        margin: 0 auto 2vh; /* Centraliza e adiciona espaçamento inferior */
+        border: 0.4vh solid #fff; /* Borda branca */
         background: #000; /* Fundo preto */
     }
 
@@ -67,13 +66,13 @@
 
     /* Nome e profissão no header */
     .name {
-        font-size: 1.8rem; /* Tamanho do texto do nome */
+        font-size: 2.5vh; /* Tamanho proporcional ao viewport */
         font-weight: bold; /* Texto em negrito */
-        margin-bottom: 5px; /* Espaçamento inferior */
+        margin-bottom: 1vh; /* Espaçamento inferior */
     }
 
     .profession {
-        font-size: 1rem; /* Tamanho do texto da profissão */
+        font-size: 1.5vh; /* Tamanho proporcional ao viewport */
         color: #444; /* Cor do texto */
     }
 
@@ -81,14 +80,14 @@
     .social-icons {
         display: flex; /* Exibe os ícones em linha */
         justify-content: center; /* Centraliza os ícones */
-        gap: 20px; /* Espaçamento entre os ícones */
-        margin-top: 20px; /* Espaçamento superior */
+        gap: 2vw; /* Espaçamento entre os ícones */
+        margin-top: 2vh; /* Espaçamento superior */
     }
 
     .social-icons a {
         background: #fff; /* Fundo branco do ícone */
-        width: 35px; /* Largura do contêiner do ícone */
-        height: 35px; /* Altura do contêiner do ícone */
+        width: 5vh; /* Proporcional à altura da janela */
+        height: 5vh; /* Proporcional à altura da janela */
         border-radius: 10%; /* Bordas arredondadas */
         display: flex; /* Flexbox para centralizar o ícone */
         align-items: center; /* Alinha verticalmente */
@@ -102,9 +101,8 @@
     }
 
     .social-icons svg {
-        width: 30px; /* Tamanho do SVG */
-        height: 30px; /* Altura do SVG */
-        fill: #f9c802; /* Cor do ícone */
+        width: 2.5vh; /* Tamanho do SVG proporcional */
+        height: 2.5vh; /* Tamanho do SVG proporcional */
     }
 
     /* Seção de conteúdo principal */
@@ -113,28 +111,26 @@
         display: flex; /* Flexbox para organizar elementos */
         flex-direction: column; /* Organização vertical */
         justify-content: center; /* Centraliza os elementos verticalmente */
-        gap: 30px; /* Espaçamento proporcional entre seções */
-        overflow-y: auto; /* Adiciona rolagem vertical se necessário */
+        gap: 5vh; /* Espaçamento proporcional entre seções */
     }
 
     .section-title {
-        font-size: 2rem; /* Tamanho do texto do título */
+        font-size: 2vh; /* Tamanho proporcional ao viewport */
         font-weight: bold; /* Texto em negrito */
         text-align: center; /* Centraliza o texto */
-        margin-bottom: 20px; /* Espaçamento inferior */
     }
 
     /* Botões de links (Pix, E-mail, etc.) */
     .skills {
         display: flex; /* Exibe os botões em linha */
         justify-content: center; /* Centraliza os botões */
-        gap: 40px; /* Espaçamento entre os botões */
+        gap: 3vw; /* Espaçamento entre os botões */
         flex-wrap: wrap; /* Permite que os botões quebrem linha */
     }
 
     .skill-box {
-        width: 150px; /* Largura do botão */
-        height: 150px; /* Altura do botão */
+        width: 12vh; /* Largura proporcional */
+        height: 12vh; /* Altura proporcional */
         background: rgba(255, 255, 255, 0.1); /* Fundo translúcido */
         border-radius: 10px; /* Bordas arredondadas */
         display: flex; /* Flexbox para centralizar o conteúdo */
@@ -149,22 +145,20 @@
     }
 
     .skill-box svg {
-        width: 80px; /* Tamanho do SVG no botão */
-        height: 80px; /* Altura do SVG no botão */
-        fill: #f9c802; /* Cor do ícone */
+        width: 7vh; /* Tamanho do SVG no botão */
+        height: 7vh; /* Altura do SVG no botão */
     }
 
     .skill-box:hover {
-        transform: translateY(-5px); /* Move o botão para cima ao passar o mouse */
+        transform: translateY(-5%); /* Move o botão para cima ao passar o mouse */
         background: #f9c802; /* Fundo amarelo */
         color: #000; /* Cor do texto preta */
     }
 
     /* Seção de localizações (Maps, Uber, etc.) */
     .location {
-        margin-top: 10px; /* Espaçamento superior */
         display: flex; /* Exibe os botões em linha */
-        gap: 15px; /* Espaçamento entre os botões */
+        gap: 2vw; /* Espaçamento entre os botões */
         justify-content: center; /* Centraliza os botões */
     }
 
@@ -172,13 +166,13 @@
         text-decoration: none; /* Remove o sublinhado */
         color: #fff; /* Cor do texto */
         background: rgba(255, 255, 255, 0.1); /* Fundo translúcido */
-        padding: 10px 20px; /* Espaçamento interno */
+        padding: 1vh 2vw; /* Espaçamento interno proporcional */
         border-radius: 10px; /* Bordas arredondadas */
         display: flex; /* Flexbox para centralizar o conteúdo */
         align-items: center; /* Alinha verticalmente o texto e ícone */
-        gap: 10px; /* Espaçamento entre texto e ícone */
+        gap: 1vw; /* Espaçamento entre texto e ícone */
         transition: background 0.3s ease; /* Animação ao passar o mouse */
-        font-size: 1rem; /* Tamanho do texto */
+        font-size: 1vh; /* Tamanho proporcional do texto */
     }
 
     .location a:hover {
@@ -187,62 +181,15 @@
     }
 
     .location svg {
-        width: 20px; /* Tamanho do SVG */
-        height: 20px; /* Altura do SVG */
+        width: 2vh; /* Tamanho do SVG */
+        height: 2vh; /* Altura do SVG */
     }
 
     /* Seção de endereço */
     .address {
-        margin-top: 20px; /* Espaçamento superior */
         text-align: center; /* Centraliza o texto */
-        font-size: 1rem; /* Tamanho do texto */
+        font-size: 1.2vh; /* Tamanho proporcional ao viewport */
         color: #ccc; /* Cor do texto */
-        line-height: 1.5; /* Espaçamento entre linhas */
-    }
-
-    /* Responsividade para dispositivos menores */
-    @media (max-width: 480px) {
-        .header {
-            padding: 30px 10px; /* Ajusta o espaçamento interno */
-        }
-
-        .profile-pic {
-            width: 100px; /* Reduz o tamanho da foto de perfil */
-            height: 100px;
-        }
-
-        .name {
-            font-size: 1.5rem; /* Reduz o tamanho do texto do nome */
-        }
-
-        .social-icons a {
-            width: 30px; /* Reduz os ícones sociais */
-            height: 30px;
-        }
-
-        .content {
-            gap: 15px; /* Reduz o espaçamento entre seções */
-        }
-
-        .skill-box {
-            width: 100px; /* Reduz o tamanho dos botões */
-            height: 100px;
-        }
-
-        .skill-box svg {
-            width: 50px; /* Reduz o tamanho do SVG nos botões */
-            height: 50px;
-        }
-
-        .location a {
-            padding: 8px 15px; /* Ajusta o espaçamento interno */
-            font-size: 0.8rem; /* Reduz o tamanho do texto */
-            gap: 8px; /* Ajusta o espaçamento entre texto e ícone */
-        }
-
-        .address {
-            font-size: 0.9rem; /* Reduz o tamanho do texto */
-        }
     }
 </style>
 
