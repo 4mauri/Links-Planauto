@@ -287,17 +287,39 @@
         </div>
     </div>
 
-    <script>
-        // Função para copiar texto de forma segura
-        async function secureCopy(text) {
-            try {
-                await navigator.clipboard.writeText(text);
-                alert(`Copiado: ${text}`);
-            } catch (err) {
-                console.error('Falha ao copiar:', err);
-            }
-        }
-    </script>
+   <script>
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text)
+            .then(() => {
+                // Mensagem dinâmica no botão
+                const messageBox = document.createElement('div');
+                messageBox.innerText = text === '27523298000170' 
+                    ? 'Pix copiado com sucesso!' 
+                    : 'E-mail copiado com sucesso!';
+                messageBox.style.position = 'fixed';
+                messageBox.style.bottom = '10%';
+                messageBox.style.left = '50%';
+                messageBox.style.transform = 'translateX(-50%)';
+                messageBox.style.background = '#f9c802';
+                messageBox.style.color = '#000';
+                messageBox.style.padding = '10px 20px';
+                messageBox.style.borderRadius = '10px';
+                messageBox.style.fontSize = '1.2rem';
+                messageBox.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+                messageBox.style.zIndex = '1000';
+                document.body.appendChild(messageBox);
+
+                // Remove a mensagem após 2 segundos
+                setTimeout(() => {
+                    document.body.removeChild(messageBox);
+                }, 2000);
+            })
+            .catch(() => {
+                alert('Erro ao copiar!');
+            });
+    }
+</script>
+
 </body>
 </html>
 </body>
