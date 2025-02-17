@@ -6,206 +6,205 @@
     <title>Dashboard - PlanAuto</title>
   <style>
     /* Reset CSS */
-     html, body {
-            overflow: hidden;  /* Remove as barras de rolagem */
-            height: 100%;      /* Garante que o corpo ocupe toda a altura da tela */
-        }
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box; /* Define a borda como parte do tamanho total */
-    }
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Evita barras de rolagem */
+    box-sizing: border-box;
+}
 
-    /* Configurações básicas da página */
-    body {
-        font-family: 'Arial', sans-serif;
-        background: #1a1a1a url(''); /* Adicione o link da imagem de fundo, se necessário */
-        background-size: cover; /* Ajusta a imagem para cobrir todo o fundo */
-        background-position: center;
-        color: #fff; /* Define a cor padrão do texto */
-        display: flex;
-        justify-content: center; /* Centraliza horizontalmente o conteúdo */
-        align-items: center; /* Centraliza verticalmente o conteúdo */
-        height: 100vh; /* Define altura total da janela */
-        width: 100vw; /* Define largura total da janela */
-        overflow: hidden; /* Remove barras de rolagem */
-    }
+/* Estilos gerais do body */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #000; /* Cor de fundo sólida */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-   /* Estilos gerais para o card */
+/* Estilos para o card */
 .card {
-    width: 100vw; /* Largura total da viewport */
-    height: 100vh; /* Altura total da viewport */
-    background: rgba(0, 0, 0, 0.8); /* Fundo translúcido */
-    display: flex; /* Flexbox para organizar o layout */
-    flex-direction: column; /* Organização vertical dos elementos */
-    justify-content: space-between; /* Espaça os elementos proporcionalmente */
-    padding: 5vh 5vw; /* Margens internas proporcionais */
-    box-sizing: border-box; /* Inclui padding e border no cálculo do tamanho total */
+    width: 90vw; /* 90% da largura da viewport */
+    max-width: 1200px; /* Largura máxima para telas maiores */
+    height: 90vh; /* 90% da altura da viewport */
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5vh 5vw;
+    box-sizing: border-box;
+    overflow: auto; /* Permite rolagem interna se necessário */
+    border-radius: 10px; /* Bordas arredondadas para melhor estética */
 }
 
 /* Media query para dispositivos móveis */
 @media (max-width: 768px) {
     .card {
-        padding: 2vh 2vw; /* Reduz o padding em telas menores */
+        width: 95vw; /* Aumenta a largura para 95% em telas menores */
+        height: auto; /* Altura automática para ajustar ao conteúdo */
+        padding: 4vh 4vw; /* Reduz o padding em telas menores */
+        margin: 5vh 0; /* Espaçamento vertical para evitar corte pelas barras do navegador */
     }
 }
-    /* Header (parte superior do card) */
-    .header {
 
-        background: #f9c802; /* Fundo amarelo */
-        padding: 5vh 2vw; /* Espaçamento interno proporcional */
-        text-align: center; /* Centraliza o conteúdo */
-        border-bottom-left-radius: 10px; /* Borda arredondada inferior esquerda */
-        border-bottom-right-radius: 10px; /* Borda arredondada inferior direita */
-    }
+/* Estilos para o header do card */
+.header {
+    background: #f9c802;
+    padding: 4vh 2vw;
+    text-align: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
 
-    /* Foto de perfil */
-    .profile-pic {
-        width: 12vh; /* Proporcional à altura da janela */
-        height: 12vh; /* Torna o círculo proporcional */
-        border-radius: 50%; /* Torna o contêiner circular */
-        overflow: hidden; /* Garante que o conteúdo respeite o contêiner */
-        margin: 0 auto 2vh; /* Centraliza e adiciona espaçamento inferior */
-        border: 0.4vh solid #fff; /* Borda branca */
-        background: #000; /* Fundo preto */
-    }
+/* Estilos para a foto de perfil */
+.profile-pic {
+    width: 12vh;
+    height: 12vh;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 2vh;
+    border: 0.4vh solid #fff;
+    background: #000;
+}
 
-    .profile-pic img {
-        width: 100%; /* Preenche todo o círculo */
-        height: 100%; /* Mantém a proporção dentro do círculo */
-        object-fit: cover; /* Ajusta a imagem para cobrir o círculo */
-    }
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-    /* Nome e profissão no header */
-    .name {
-        font-size: 3.5vh; /* Tamanho proporcional ao viewport 
-*/
-        font-weight: bold; /* Texto em negrito */
-        margin-bottom: 0,5vh; /* Espaçamento inferior */
-        color: #000; /* Cor do texto */
-    }
+/* Estilos para o nome e profissão */
+.name {
+    font-size: 3.5vh;
+    font-weight: bold;
+    margin-bottom: 0.5vh;
+    color: #000;
+}
 
-    .profession {
-        font-size: 2.5vh; /* Tamanho proporcional ao viewport */
-        color: #444; /* Cor do texto */
-    }
+.profession {
+    font-size: 2.5vh;
+    color: #444;
+}
 
-    /* Ícones sociais */
-    .social-icons {
-        display: flex; /* Exibe os ícones em linha */
-        justify-content: center; /* Centraliza os ícones */
-        gap: 1vw; /* Espaçamento entre os ícones */
-        margin-top: 2vh; /* Espaçamento superior */
-    }
+/* Estilos para os ícones sociais */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1vw;
+    margin-top: 2vh;
+}
 
-    .social-icons a {
-        background: #ffe253; /* Fundo branco do ícone */
-        width: 5vh; /* Proporcional à altura da janela */
-        height: 5vh; /* Proporcional à altura da janela */
-        border-radius: 10%; /* Bordas arredondadas */
-        display: flex; /* Flexbox para centralizar o ícone */
-        align-items: center; /* Alinha verticalmente */
-        justify-content: center; /* Alinha horizontalmente */
-        transition: transform 0.3s ease, background 0.3s ease; /* Animação ao passar o mouse */
-    }
+.social-icons a {
+    background: #ffe253;
+    width: 5vh;
+    height: 5vh;
+    border-radius: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
 
-    .social-icons a:hover {
-        background: #ffd400; /* Fundo preto ao passar o mouse */
-        transform: scale(1.1); /* Aumenta o tamanho ao passar o mouse */
-    }
+.social-icons a:hover {
+    background: #ffd400;
+    transform: scale(1.1);
+}
 
-    .social-icons svg {
-        width: 2.5vh; /* Tamanho do SVG proporcional */
-        height: 2.5vh; /* Tamanho do SVG proporcional */
-    }
+.social-icons svg {
+    width: 2.5vh;
+    height: 2.5vh;
+}
 
-    /* Seção de conteúdo principal */
-    .content {
-        margin: 50px;
-        flex: 1; /* Expande para ocupar o espaço restante */
-        display: flex; /* Flexbox para organizar elementos */
-        flex-direction: column; /* Organização vertical */
-        justify-content: center; /* Centraliza os elementos verticalmente */
-        gap: 5vh; /* Espaçamento proporcional entre seções */
-    }
+/* Estilos para o conteúdo principal */
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5vh;
+    padding: 0 2vw;
+}
 
-    .section-title {
-        font-size: 2vh; /* Tamanho proporcional ao viewport */
-        font-weight: bold; /* Texto em negrito */
-        text-align: center; /* Centraliza o texto */
-    }
+.section-title {
+    font-size: 2vh;
+    font-weight: bold;
+    text-align: center;
+}
 
-    /* Botões de links (Pix, E-mail, etc.) */
-    .skills {
-        display: flex; /* Exibe os botões em linha */
-        justify-content: center; /* Centraliza os botões */
-        gap: 4vw; /* Espaçamento entre os botões */
-        flex-wrap: wrap; /* Permite que os botões quebrem linha */
-    }
+/* Estilos para as habilidades */
+.skills {
+    display: flex;
+    justify-content: center;
+    gap: 4vw;
+    flex-wrap: wrap;
+}
 
-    .skill-box {
-        width: 18vh; /* Largura proporcional */
-        height: 18vh; /* Altura proporcional */
-        background: rgba(255, 255, 255, 0.1); /* Fundo translúcido */
-        border-radius: 10px; /* Bordas arredondadas */
-        display: flex; /* Flexbox para centralizar o conteúdo */
-        flex-direction: column; /* Organização vertical */
-        justify-content: center; /* Centraliza verticalmente o conteúdo */
-        align-items: center; /* Centraliza horizontalmente o conteúdo */
-        color: #fff; /* Cor do texto */
-        text-align: center; /* Alinhamento central do texto */
-        font-size: 0.9rem; /* Tamanho do texto */
-        transition: transform 0.3s ease; /* Animação ao passar o mouse */
-        cursor: pointer; /* Mostra o cursor de clique */
-    }
+.skill-box {
+    width: 15vh;
+    height: 15vh;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
 
-    .skill-box svg {
-        width: 5vh; /* Tamanho do SVG no botão */
-        height: 5vh; /* Altura do SVG no botão */
-    }
+.skill-box svg {
+    width: 5vh;
+    height: 5vh;
+}
 
-    .skill-box:hover {
-        transform: translateY(-5%); /* Move o botão para cima ao passar o mouse */
-        background: #f9c802; /* Fundo amarelo */
-        color: #000; /* Cor do texto preta */
-    }
+.skill-box:hover {
+    transform: translateY(-5%);
+    background: #f9c802;
+    color: #000;
+}
 
-    /* Seção de localizações (Maps, Uber, etc.) */
-    .location {
-        display: flex; /* Exibe os botões em linha */
-        gap: 2vw; /* Espaçamento entre os botões */
-        justify-content: center; /* Centraliza os botões */
-    }
+/* Estilos para a localização */
+.location {
+    display: flex;
+    gap: 2vw;
+    justify-content: center;
+}
 
-    .location a {
-        text-decoration: none; /* Remove o sublinhado */
-        color: #fff; /* Cor do texto */
-        background: rgba(255, 255, 255, 0.1); /* Fundo translúcido */
-        padding: 2vh 5vw; /* Espaçamento interno proporcional */
-        border-radius: 10px; /* Bordas arredondadas */
-        display: flex; /* Flexbox para centralizar o conteúdo */
-        align-items: center; /* Alinha verticalmente o texto e ícone */
-        gap: 1vw; /* Espaçamento entre texto e ícone */
-        transition: background 0.3s ease; /* Animação ao passar o mouse */
-        font-size: 1vh; /* Tamanho proporcional do texto */
-    }
+.location a {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2vh 5vw;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    transition: background 0.3s ease;
+    font-size: 1vh;
+}
 
-    .location a:hover {
-        background: #f9c802; /* Fundo amarelo ao passar o mouse */
-        color: #000; /* Texto preto ao passar o mouse */
-    }
+.location a:hover {
+    background: #f9c802;
+    color: #000;
+}
 
-    .location svg {
-        width: 2vh; /* Tamanho do SVG */
-        height: 2vh; /* Altura do SVG */
-    }
+.location svg {
+    width: 2vh;
+    height: 2vh;
+}
 
-    /* Seção de endereço */
-    .address {
-        text-align: center; /* Centraliza o texto */
-        font-size: 1.2vh; /* Tamanho proporcional ao viewport */
-        color: #; /* Cor do texto */
-    }
+/* Estilos para o endereço */
+.address {
+    text-align: center;
+    font-size: 1.2vh;
+    color: #ccc;
+}
 </style>
 
 </head>
