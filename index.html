@@ -31,17 +31,24 @@
         overflow: hidden; /* Remove barras de rolagem */
     }
 
-    /* Card principal ocupando toda a tela */
-    .card {
-        width: 100%; /* Largura total da tela */
-        height: 100%; /* Altura total da tela */
-        background: rgba(0, 0, 0, 0.8); /* Fundo translúcido */
-        display: flex; /* Flexbox para organizar o layout */
-        flex-direction: column; /* Organização vertical dos elementos */
-        justify-content: space-between; /* Espaça os elementos proporcionalmente */
-        padding: 2vh 5vw; /* Margens internas proporcionais */
-    }
+   /* Estilos gerais para o card */
+.card {
+    width: 100vw; /* Largura total da viewport */
+    height: 100vh; /* Altura total da viewport */
+    background: rgba(0, 0, 0, 0.8); /* Fundo translúcido */
+    display: flex; /* Flexbox para organizar o layout */
+    flex-direction: column; /* Organização vertical dos elementos */
+    justify-content: space-between; /* Espaça os elementos proporcionalmente */
+    padding: 5vh 5vw; /* Margens internas proporcionais */
+    box-sizing: border-box; /* Inclui padding e border no cálculo do tamanho total */
+}
 
+/* Media query para dispositivos móveis */
+@media (max-width: 768px) {
+    .card {
+        padding: 2vh 2vw; /* Reduz o padding em telas menores */
+    }
+}
     /* Header (parte superior do card) */
     .header {
 
@@ -137,8 +144,8 @@
     }
 
     .skill-box {
-        width: 11vh; /* Largura proporcional */
-        height: 11vh; /* Altura proporcional */
+        width: 18vh; /* Largura proporcional */
+        height: 18vh; /* Altura proporcional */
         background: rgba(255, 255, 255, 0.1); /* Fundo translúcido */
         border-radius: 10px; /* Bordas arredondadas */
         display: flex; /* Flexbox para centralizar o conteúdo */
