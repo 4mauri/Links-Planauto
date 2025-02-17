@@ -6,6 +6,10 @@
     <title>Dashboard - PlanAuto</title>
   <style>
     /* Reset CSS */
+     html, body {
+            overflow: hidden;  /* Remove as barras de rolagem */
+            height: 100%;      /* Garante que o corpo ocupe toda a altura da tela */
+        }
     * {
         margin: 0;
         padding: 0;
@@ -35,11 +39,12 @@
         display: flex; /* Flexbox para organizar o layout */
         flex-direction: column; /* Organização vertical dos elementos */
         justify-content: space-between; /* Espaça os elementos proporcionalmente */
-        padding: 5vh 5vw; /* Margens internas proporcionais */
+        padding: 2vh 5vw; /* Margens internas proporcionais */
     }
 
     /* Header (parte superior do card) */
     .header {
+
         background: #f9c802; /* Fundo amarelo */
         padding: 5vh 2vw; /* Espaçamento interno proporcional */
         text-align: center; /* Centraliza o conteúdo */
@@ -109,6 +114,7 @@
 
     /* Seção de conteúdo principal */
     .content {
+        margin: 50px;
         flex: 1; /* Expande para ocupar o espaço restante */
         display: flex; /* Flexbox para organizar elementos */
         flex-direction: column; /* Organização vertical */
@@ -131,8 +137,8 @@
     }
 
     .skill-box {
-        width: 15vh; /* Largura proporcional */
-        height: 15vh; /* Altura proporcional */
+        width: 11vh; /* Largura proporcional */
+        height: 11vh; /* Altura proporcional */
         background: rgba(255, 255, 255, 0.1); /* Fundo translúcido */
         border-radius: 10px; /* Bordas arredondadas */
         display: flex; /* Flexbox para centralizar o conteúdo */
@@ -147,8 +153,8 @@
     }
 
     .skill-box svg {
-        width: 7vh; /* Tamanho do SVG no botão */
-        height: 7vh; /* Altura do SVG no botão */
+        width: 5vh; /* Tamanho do SVG no botão */
+        height: 5vh; /* Altura do SVG no botão */
     }
 
     .skill-box:hover {
